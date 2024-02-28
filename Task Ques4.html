@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Ques 4</title>
+</head>
+
+<body>
+
+    <script>
+
+        const getData = async () => {
+
+            const URL = "https://jsonplaceholder.typicode.com/posts";
+
+            try {
+                let response = await fetch(URL);
+                //console.log(response)
+                let data = await response.json();
+                //console.log(data)
+
+                let arrSize = data.slice(0, 5);
+                //console.log(arrSize)
+
+                let title = arrSize.map(ele => ele.title)
+                console.log(title)
+
+            } catch (error) {
+                console.log("Error fetching data...", error)
+            }
+        }
+
+        getData();
+
+    </script>
+
+</body>
+
+</html>
